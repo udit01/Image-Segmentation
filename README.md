@@ -3,6 +3,8 @@
 I have this kinds of images:
 
 
+Key Point: I have texture-less, mostly monochromatic T-shirts, which is of great importance in using color based segmentation & thresholding.
+
 Dataset comprises of 200[2-3 Tshirts] + 2000[5-6Tshirts]
 D1 + D2
 
