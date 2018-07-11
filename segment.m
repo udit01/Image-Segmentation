@@ -21,8 +21,8 @@ for k  = 1:length(image_paths)
     [wMask wOver] = whiteMask(image);
     imwrite( wMask, strcat(filepath, '/',  name, '_mask_tw',  ext) );
     % Uncomment when you want pink mask as well
-    %[pMask pOver] = pinkMask(image);
-    %imwrite( pMask, strcat(filepath, '/',  name, '_mask_tp',  ext) );
+    [pMask pOver] = pinkMask(image);
+    imwrite( pMask, strcat(filepath, '/',  name, '_mask_tp',  ext) );
 end
 
 
