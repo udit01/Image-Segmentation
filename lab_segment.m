@@ -54,10 +54,11 @@ label = color_labels(label);
 clear distance;
 
 rgb_label = repmat(label,[1 1 3]);
-segmented_images = zeros([size(fabric), nColors],'uint8');
+
 
 
 %%%% For original image map , 
+% segmented_images = zeros([size(fabric), nColors],'uint8');
 % for count = 1:nColors
 %   
 %   color = fabric;
@@ -65,11 +66,12 @@ segmented_images = zeros([size(fabric), nColors],'uint8');
 %   segmented_images(:,:,:,count) = color;
 % end 
 
-%%% For 1 HOT map , 
+%%% For 1 HOT map , we only need a greyscale image
+segmented_images = zeros([size(fabric,1), size(fabric,2) , nColors],'uint8');
 for count = 1:nColors
   mask = zeros(size(fabric)) ;
   mask(rgb_label ~= color_labels(count)) = 255;
-  segmented_images(:,:,:,count) = mask;
+  segmented_images(:,:,count) = mask(:, :, 1) ;
 end 
 
 
@@ -79,7 +81,7 @@ end
 
 for count= 1:nColors
     %figure, imshow(segmented_images(:, :, :, count)), title(count);
-    imwrite( segmented_images(:, :, :, count), strcat(filepath, '/',  name, '_mask', int2str(count), ext) );
+    imwrite( segmented_images(:, :,  count), strcat(filepath, '/',  name, '_mask', int2str(count), ext) );
 end
 
 
