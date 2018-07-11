@@ -1,4 +1,4 @@
-# Image-Segmentation
+# Problem Statement
 
 I have this kinds of images:
 
@@ -8,15 +8,15 @@ Key Point: I have texture-less, mostly monochromatic T-shirts, which is of great
 Dataset comprises of 350[2-3 Tshirts] + 2000[5-6Tshirts]
 D1 + D2
 
-Say D1 is the running example (it's cleaner, less noisy)
-For each image , I would like to generate 3(4?) masks, one each for every T shirt, and 1 for BG ?
-Similarly for D2
+For each image, I would like to generate N masks, one each for every T shirt, and 1 for BG. 
 
 I will choose a HSV thresholds of max and min therefore 6 values for each mask(each T shirt color)  to be generated.
 
 But before all this, I came across Otsu's method and Image quantization , so should check that too.
 
+# Approaches
 
+I have tried different algorithms and this is my survey repository, to store the results I was getting and finally getting the required output.
 
 # Current Directory structure [excluding files]
 ```
