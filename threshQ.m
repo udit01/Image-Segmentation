@@ -1,7 +1,7 @@
 function [  ] = threshQ( im_name, num_thresh )
 
+%% Thresholding and Image Quantization algorithm testing
 
-%%
 %For grey-scale images
 
 %image = imread(im_name);

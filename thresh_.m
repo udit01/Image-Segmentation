@@ -1,10 +1,9 @@
 function [  ] = thresh_( image_name , numColors)
 
+% Numerical analysis of image, for thresholding 
 %% Check Results Using the Metric Output Argument
 %%
 % Read image.
-
-% Copyright 2015 The MathWorks, Inc.
 
 I = imread(image_name);
 %%
