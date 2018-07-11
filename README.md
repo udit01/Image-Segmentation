@@ -8,7 +8,7 @@ Key Point: I have texture-less, mostly monochromatic T-shirts, which is of great
 Dataset comprises of 350[2-3 Tshirts] + 2000[5-6Tshirts]
 D1 + D2
 
-For each image, I would like to generate N masks, one each for every T shirt, and 1 for BG. 
+For each image, I would like to generate N masks, one each for every T shirt, and 1 for BG.
 
 I will choose a HSV thresholds of max and min therefore 6 values for each mask(each T shirt color)  to be generated.
 
