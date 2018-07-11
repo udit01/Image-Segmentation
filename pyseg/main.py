@@ -1,3 +1,7 @@
+# Segment images, works correctly but I want different masks for each
+# Usage: 
+# Algorithm source
+
 from PIL import Image
 import sys
 from graph import build_graph, segment_graph

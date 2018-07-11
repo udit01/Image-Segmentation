@@ -1,3 +1,5 @@
+%% Detects color threshold values, Interactive thresholding.
+
 % Demo macro to very, very simple color detection in RGB color space.
 % by ImageAnalyst
 function SimpleColorDetection()

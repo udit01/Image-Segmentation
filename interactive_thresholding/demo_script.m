@@ -1,3 +1,5 @@
+%% Toplevel for Running threhsold.m 
+
 % Demo to threshold anad mask a double or integer image.
 % By Image Analyst, May 2015
 
