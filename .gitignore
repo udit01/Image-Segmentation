@@ -1,6 +1,8 @@
-im/
-*.png
-*.jpg
+2TC/
+2TD/
+2TP/
+3T/
+capture/
 *~
 
 # Byte-compiled / optimized / DLL files

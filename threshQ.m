@@ -1,6 +1,5 @@
 function [  ] = threshQ( im_name, num_thresh )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
+
 
 %%
 %For grey-scale images

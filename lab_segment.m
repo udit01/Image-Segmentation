@@ -1,13 +1,9 @@
 function [  ] = lab_segment( image_name , numColors)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
 
-prompt = 'Press Enter to continue...' ;
+%%Color-Based Segmentation Using the L*a*b* Color Space
 
 fabric = imread(image_name);
-
 load regioncoordinates;
-
 nColors = numColors; %Two Tshirts + 1 background
 
 sample_regions = false([size(fabric,1) size(fabric,2) nColors]);
