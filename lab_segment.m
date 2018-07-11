@@ -5,8 +5,6 @@ function [  ] = lab_segment( image_name , numColors)
 prompt = 'Press Enter to continue...' ;
 
 fabric = imread(image_name);
-figure(1), imshow(fabric), title(image_name);
-
 
 load regioncoordinates;
 
@@ -36,7 +34,7 @@ for count = 1:nColors
   color_markers(count,2) = mean2(b(sample_regions(:,:,count)));
 end
 
-fprintf('[%0.3f,%0.3f] \n',color_markers(2,1),color_markers(2,2));
+%fprintf('[%0.3f,%0.3f] \n',color_markers(2,1),color_markers(2,2));
 
 %Each color marker now has an 'a*' and a 'b*' value. You can classify each pixel in the lab_fabric image by calculating the Euclidean distance between that pixel and each color marker. The smallest distance will tell you that the pixel most closely matches that color marker. For example, if the distance between a pixel and the red color marker is the smallest, then the pixel would be labeled as a red pixel.
 %Create an array that contains your color labels, i.e., 0 = background, 1 = red, 2 = green, 3 = purple, 4 = magenta, and 5 = yellow.
@@ -60,47 +58,29 @@ segmented_images = zeros([size(fabric), nColors],'uint8');
 
 
 %%%% For original image map , 
-for count = 1:nColors
-  
-  color = fabric;
-  color(rgb_label ~= color_labels(count)) = 0;
-  segmented_images(:,:,:,count) = color;
-end 
+% for count = 1:nColors
+%   
+%   color = fabric;
+%   color(rgb_label ~= color_labels(count)) = 0;
+%   segmented_images(:,:,:,count) = color;
+% end 
 
 %%% For 1 HOT map , 
-
-%for count = 1:nColors
-%  mask = zeros(size(fabric)) ;
-%  mask(rgb_label ~= color_labels(count)) = 255;
-%  segmented_images(:,:,:,count) = mask;
-%end 
+for count = 1:nColors
+  mask = zeros(size(fabric)) ;
+  mask(rgb_label ~= color_labels(count)) = 255;
+  segmented_images(:,:,:,count) = mask;
+end 
 
 
 %x = input(prompt);
+[filepath,name,ext] = fileparts(image_name);
+
 
 for count= 1:nColors
-    figure, imshow(segmented_images(:, :, :, count)), title(count);
+    %figure, imshow(segmented_images(:, :, :, count)), title(count);
+    imwrite( segmented_images(:, :, :, count), strcat(filepath, '/',  name, '_mask', int2str(count), ext) );
 end
-
-%figure(1), imshow(segmented_images(:,:,:,2)), title('BG? objects');
-%x = input(prompt);
-
-
-
-%purple = [119/255 73/255 152/255];
-%plot_labels = {'k', 'r', 'g', purple, 'm', 'y'};
-
-
-%figure;
-%for count = 1:nColors
-%  plot(a(label==count-1),b(label==count-1),'.','MarkerEdgeColor', ...
-%       plot_labels{count}, 'MarkerFaceColor', plot_labels{count});
-%  hold on;
-%end
-  
-%title('Scatterplot of the segmented pixels in ''a*b*'' space');
-%xlabel('''a*'' values');
-%ylabel('''b*'' values');
 
 
 end
