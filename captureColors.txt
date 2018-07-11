@@ -18,10 +18,10 @@ After Image number 66, the data gets cleaner, and we have majorly[only] the foll
 
 Color               -       CODE
 
-black                       b
+black                       bl
 dark grey                   dg
 dark pink                   dp
-dark blue / purple          p
+dark blue / purple          pu
 light torquise blue         lb
 dark torquise blue          db
 
