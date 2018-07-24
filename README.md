@@ -44,18 +44,36 @@ On Matlab  command prompt:
 > lab_segment( <image_path> , <num_regions>)
 
 ```
+For my 1st sample image, I would like to split into 3 regions for Green Tshirt, White Tshirt and background
+
+For batch processing, I first collected all file paths of 2T folder into files named image2Paths.txt etc.
+``` 
+ls 2TC/ > image2Paths.txt
+```
+and likewise for other folders and then made a script to process that text file.
+```
+> preprocess( <filepath>, <num_regions>)
+```
+Which will apply lab_segment to all the images named inside that file
+
 
 # Thresholding in H * S * V color space
 It works best in case of clean and distinct color distributions.
 
-On Matlab  command prompt:
-```
-% Image Path is the path to your image, Num Regions is the number of regions you need to split in
-> preprocess( <image_path> , <num_regions>)
+Script segment.m will work on all the image paths given inside filename and will call different scripts for different colors.
 
 ```
+% Image Path is the path to your image, Num Regions is the number of regions you need to split in
+> segment( <file_path> )
+
+```
+Similarly use segmentCapture.m for D2 [The kinect dataset]
 
 # Hurdles
 1. How to evaluate accuracy/ generalizability of this method ?
 2. This data will actually go into a segmentation neural network to train, then why am I using Neural net again ?
 [Because I'm hoping that with batch normalization, the neural network will generalize enough to overcome the color specificness and heruristics ? ]
+3. The degree of automation goes down when you want more precise masks.
+
+# Results
+Results on some images from D1 and D2 can be seen in folder sample_outputs/
